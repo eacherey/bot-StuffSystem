@@ -20,11 +20,21 @@ async def main():
         await bot.load_extension("cogs.warn")
         await bot.load_extension("cogs.unwarn")
         await bot.load_extension("cogs.checkwarn")
+        await bot.load_extension("cogs.member_tracker")
         await bot.start(TOKEN)
 
 @bot.event
 async def on_ready():
     await bot.tree.sync()
+    
+    activity = discord.Activity(
+        type=discord.ActivityType.custom,
+        name="Наказывает Школьников",
+        state="👀"
+    )
+    
+    await bot.change_presence(activity=activity)
+    
     print(f"{bot.user} has connected to Discord!")
 
 if __name__ == '__main__':
