@@ -20,6 +20,7 @@ async def main():
         await bot.load_extension("cogs.warn")
         await bot.load_extension("cogs.unwarn")
         await bot.load_extension("cogs.checkwarn")
+        await bot.load_extension("cogs.member_tracker")
         await bot.start(TOKEN)
 
 @bot.event
