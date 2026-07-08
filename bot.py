@@ -25,6 +25,15 @@ async def main():
 @bot.event
 async def on_ready():
     await bot.tree.sync()
+    
+    activity = discord.Activity(
+        type=discord.ActivityType.custom,
+        name="Наказывает Школьников",
+        state="👀"
+    )
+    
+    await bot.change_presence(activity=activity)
+    
     print(f"{bot.user} has connected to Discord!")
 
 if __name__ == '__main__':
